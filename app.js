@@ -12,7 +12,7 @@ app.use(require('./router/register'));
 app.use(require('./router/guest_schema'));
 const helmet = require('helmet');
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
-const PORT = process.env.PORT;
+const PORT = Process.env.PORT || 3000;
 
 const cors = require('cors');
 
