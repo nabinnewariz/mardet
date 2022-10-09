@@ -9,6 +9,7 @@ require('./database/connection');
 
 app.use(express.json());
 app.use(require('./router/register'));
+app.use(require('./router/guest_schema'));
 const helmet = require('helmet');
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 const PORT = process.env.PORT;
