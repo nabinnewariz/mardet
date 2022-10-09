@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-app.use(cors({
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
-}));
 const Register = require('../model/register_schema')
 
 router.post("/Register", cors(), (req, res) => {
