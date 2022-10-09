@@ -14,7 +14,7 @@ router.post("/Marriagedata",(req,res) => {
     res.send("hey are you there ? ");
 })
 
-router.get("/Marriagedata", async(req,res) => {
+router.get("/Marriagedata",cors(), async(req,res) => {
     try {
         const marriageData = await Marriagedata.find();
         res.send(marriageData);
