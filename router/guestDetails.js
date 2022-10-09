@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-
+app.use(cors({
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 const Marriagedata = require('../model/guest_schema');
 
 router.post("/Marriagedata",cors(),(req,res) => {
