@@ -9,10 +9,10 @@ require('./database/connection');
 
 app.use(express.json());
 app.use(require('./router/register'));
-app.use(require('./router/guest_schema'));
+app.use(require('./router/guestDetails'));
 const helmet = require('helmet');
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
-const PORT = Process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 const cors = require('cors');
 
