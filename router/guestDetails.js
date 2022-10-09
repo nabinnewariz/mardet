@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const Marriagedata = require('../model/guest_schema');
 
-router.post("/Marriagedata",(req,res) => {
+router.post("/Marriagedata",cors(),(req,res) => {
     console.log(req.body);
     const Marriagedocument = new Marriagedata(req.body);
     Marriagedocument.save().then(()=> {

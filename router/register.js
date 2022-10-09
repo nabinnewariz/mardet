@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
+const cors = require('cors');
 const Register = require('../model/register_schema')
 
-router.post("/Register", (req, res) => {
+router.post("/Register", cors(), (req, res) => {
     const RegistrationDocument = new Register(req.body);
     RegistrationDocument.save().then(()=> {
         console.log(RegistrationDocument);
@@ -12,7 +12,7 @@ router.post("/Register", (req, res) => {
     })
     res.send("Registration is done");
 })
-router.post("/login", async(req,res) => {
+router.post("/login", cors(), async(req,res) => {
     try {
         const email = req.body.email;
         const pw = req.body.password;
