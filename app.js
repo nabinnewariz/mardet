@@ -16,7 +16,11 @@ const PORT = process.env.PORT || 3000;
 
 const cors = require('cors');
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://mardetail.herokuapp.com"
+    })
+)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
