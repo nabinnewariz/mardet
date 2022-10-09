@@ -18,7 +18,7 @@ const cors = require('cors');
 
 app.use(
     cors({
-        origin: "https://mardetail.herokuapp.com"
+        origin: "*"
     })
 )
 app.use(bodyParser.json());
