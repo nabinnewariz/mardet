@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
+const app = express();
 
 dotenv.config({path: './config.env'});
 
@@ -14,11 +15,10 @@ app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 const PORT = process.env.PORT || 3000;
 
 const cors = require('cors');
-const app = express();
+
 app.use(
     cors({
-        origin: "*",
-        allowedHeaders: "X-Resquested-With"
+        origin: "*"
     })
 )
 app.use(bodyParser.json());
