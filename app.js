@@ -12,13 +12,14 @@ app.use(require('./router/register'));
 app.use(require('./router/guestDetails'));
 const helmet = require('helmet');
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 const cors = require('cors');
 
 app.use(
     cors({
-        origin: "*",
+        origin: "https://mardetail.herokuapp.com/",
+        methods: ["GET", "POST"]
     })
 )
 app.use(bodyParser.json());
