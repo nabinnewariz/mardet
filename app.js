@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -14,14 +15,7 @@ const helmet = require('helmet');
 app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 const PORT = process.env.PORT;
 
-const cors = require('cors');
-
-app.use(
-    cors({
-        origin: "https://mardetail.herokuapp.com/",
-        methods: ["GET", "POST"]
-    })
-)
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
