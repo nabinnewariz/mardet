@@ -3,7 +3,7 @@ const router = express.Router();
 const cors = require('cors');
 const Register = require('../model/register_schema')
 
-router.post("/Register", cors(), (req, res) => {
+router.post("/Register", (req, res) => {
     const RegistrationDocument = new Register(req.body);
     RegistrationDocument.save().then(()=> {
         console.log(RegistrationDocument);
