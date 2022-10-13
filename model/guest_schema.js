@@ -30,5 +30,7 @@ let guestDetailsSchema = new mongoose.Schema({
 })
 
 //GuestDetails is the collection which i have created with the name in DB
-const Marriagedata = new mongoose.model('Marriagedata', guestDetailsSchema);
+// const Marriagedata = new mongoose.model('Marriagedata', guestDetailsSchema);
+const Marriagedata = new mongoose.model('WeddingData', guestDetailsSchema);
+
 module.exports = Marriagedata;
