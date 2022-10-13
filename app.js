@@ -14,10 +14,9 @@ app.use(require('./router/guestDetails'));
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors({
-    "origin": "*",
-    "methods": "GET,HEAD,PUT, PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
+    allowedHeaders: "*",
+    allowMethods: "*",
+    origin: "*",
 }));
 const bodyParser = require('body-parser');
 // app.use(function(req, res, next) {
