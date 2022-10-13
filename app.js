@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 dotenv.config({path: './config.env'});
@@ -12,7 +13,7 @@ app.use(require('./router/guestDetails'));
 // const helmet = require('helmet');
 // app.use(helmet.referrerPolicy({policy: 'strict-origin-when-cross-origin'}));
 const PORT = process.env.PORT || 3000;
-const cors = require('cors');
+app.options('*',cors());
 app.use(cors({
     allowedHeaders: "*",
     allowMethods: "*",
