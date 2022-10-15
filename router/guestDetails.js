@@ -25,25 +25,25 @@ router.get("/Marriagedata",cors(), async(req,res) => {
     }
 });
 
-// router.options('/Searchdata', cors())
-// router.post("/Searchdata", cors(), async(req,res) => {
-//    try {
-//     const searchFisrtName = new RegExp(req.body.firstname, 'i');
-//     // const searchLastName = req.body.lastname;
-//     // const searchlocation = re.body.location;
-//     const resultFirstName = await Marriagedata.find({
-//         // "$or": [
-//             firstname: searchFisrtName
-//             // {firstName: {$regex: searchFisrtName}},
-//             // {lastName: {$regex: searchLastName}},
-//         //     {location: {$regex: searchlocation}}
-//         // ]
-//     }).then(result => {
-//         res.status(200).json(result);
-//        });
-//    } catch (error) {
-//      res.send(error).send("invalid credentials");
-//    };
-// })
+router.options('/Searchdata', cors())
+router.post("/Searchdata", cors(), async(req,res) => {
+   try {
+    const searchFisrtName = req.body.firstname;
+    // const searchFisrtName = new RegExp(req.body.firstname, 'i');
+    // const searchLastName = req.body.lastname;
+    // const searchlocation = re.body.location;
+    const resultFirstName = await Marriagedata.find({
+        // "$or": [
+            firstname: searchFisrtName
+            // {firstName: {$regex: searchFisrtName}},
+            // {lastName: {$regex: searchLastName}},
+        //     {location: {$regex: searchlocation}}
+        // ]
+    });
+    res.send(resultFirstName);
+   } catch (error) {
+     res.send(error).send("invalid credentials");
+   };
+})
 
 module.exports = router;
