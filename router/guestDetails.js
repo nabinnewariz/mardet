@@ -29,17 +29,18 @@ router.options('/Searchdata', cors())
 router.post("/Searchdata", cors(), async(req,res) => {
    try {
     const searchFisrtName = req.body.firstname;
+    console.log(searchFisrtName,"searchFisrtName");
     // const searchFisrtName = new RegExp(req.body.firstname, 'i');
     // const searchLastName = req.body.lastname;
     // const searchlocation = re.body.location;
-    const resultFirstName = await Marriagedata.find({
+    const resultFirstName = await Marriagedata.find({firstname: searchFisrtName})
         // "$or": [
-            firstname: searchFisrtName
+            // firstname: searchFisrtName
             // {firstName: {$regex: searchFisrtName}},
             // {lastName: {$regex: searchLastName}},
         //     {location: {$regex: searchlocation}}
         // ]
-    });
+    // });
     res.send(resultFirstName);
    } catch (error) {
      res.send(error).send("invalid credentials");
