@@ -33,11 +33,11 @@ router.post("/Searchdata", cors(), async(req,res) => {
     // const searchFisrtName = new RegExp(req.body.firstname, 'i');
     // const searchLastName = req.body.lastname;
     // const searchlocation = re.body.location;
-    const resultFirstName = await Marriagedata.findOne({firstname: searchFisrtName})
+    const resultFirstName = await Marriagedata.find({firstname: searchFisrtName})
         // "$or": [
             // firstname: searchFisrtName
             // {firstName: {$regex: searchFisrtName}},
-            // {lastName: {$regex: searchLastName}},
+            // {lastName: {$regex: searchLastName}}, 
         //     {location: {$regex: searchlocation}}
         // ]
     // });
