@@ -14,7 +14,7 @@ router.post("/Marriagedata",cors(),(req,res) => {
         console.log(err);
     })
     res.send("hey are you there ? ");
-})
+});
 
 router.get("/Marriagedata",cors(), async(req,res) => {
     try {
@@ -23,6 +23,28 @@ router.get("/Marriagedata",cors(), async(req,res) => {
     }catch(e){
         res.send(e); 
     }
+});
+
+
+router.post("/Searchdata", cors(), async(req,res) => {
+   try {
+    const searchFisrtName = req.body.firstName;
+    const searchLastName = req.body.lastName;
+    const searchlocation = re.body.location;
+    const resultFirstName = await Marriagedata.find({
+        "$or": [
+            {firstName: {$regex: searchFisrtName}},
+            {lastName: {$regex: searchLastName}},
+            {location: {$regex: searchlocation}}
+        ]
+    });
+   } catch (error) {
+     res.send(e).send("invalid credentials");
+   };
+
+   resultFirstName.then(result => {
+    res.status(200).json(result);
+   });
 })
 
 module.exports = router;
