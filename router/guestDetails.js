@@ -25,7 +25,7 @@ router.get("/Marriagedata",cors(), async(req,res) => {
     }
 });
 
-
+router.options('/Searchdata', cors())
 router.post("/Searchdata", cors(), async(req,res) => {
    try {
     const searchFisrtName = new RegExp(req.body.firstname);
@@ -42,7 +42,7 @@ router.post("/Searchdata", cors(), async(req,res) => {
         res.status(200).json(result);
        });
    } catch (error) {
-     res.send(e).send("invalid credentials");
+     res.send(error).send("invalid credentials");
    };
 
    resultFirstName.then(result => {
