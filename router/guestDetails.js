@@ -28,7 +28,7 @@ router.get("/Marriagedata",cors(), async(req,res) => {
 router.options('/Searchdata', cors())
 router.post("/Searchdata", cors(), async(req,res) => {
    try {
-    const searchFisrtName = req.body.firstname;
+    let searchFisrtName = new RegExp(req.body.firstname,'i');
     console.log(searchFisrtName,"searchFisrtName");
     // const searchFisrtName = new RegExp(req.body.firstname, 'i');
     // const searchLastName = req.body.lastname;
@@ -41,7 +41,7 @@ router.post("/Searchdata", cors(), async(req,res) => {
         //     {location: {$regex: searchlocation}}
         // ]
     // });
-    res.send(resultFirstName);
+    res.status(200).send(resultFirstName);
    } catch (error) {
      res.send(error).send("invalid credentials");
    };
