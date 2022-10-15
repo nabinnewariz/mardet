@@ -37,7 +37,9 @@ router.post("/Searchdata", cors(), async(req,res) => {
             {lastName: {$regex: searchLastName}},
             {location: {$regex: searchlocation}}
         ]
-    });
+    }).then(result => {
+        res.status(200).json(result);
+       });
    } catch (error) {
      res.send(e).send("invalid credentials");
    };
