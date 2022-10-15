@@ -32,11 +32,12 @@ router.post("/Searchdata", cors(), async(req,res) => {
     const searchLastName = req.body.lastName;
     const searchlocation = re.body.location;
     const resultFirstName = await Marriagedata.find({
-        "$or": [
-            {firstName: {$regex: searchFisrtName}},
-            {lastName: {$regex: searchLastName}},
-            {location: {$regex: searchlocation}}
-        ]
+        // "$or": [
+            searchFisrtName: regex,
+            // {firstName: {$regex: searchFisrtName}},
+            // {lastName: {$regex: searchLastName}},
+        //     {location: {$regex: searchlocation}}
+        // ]
     }).then(result => {
         res.status(200).json(result);
        });
