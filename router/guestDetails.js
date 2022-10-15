@@ -28,7 +28,7 @@ router.get("/Marriagedata",cors(), async(req,res) => {
 
 router.post("/Searchdata", cors(), async(req,res) => {
    try {
-    const searchFisrtName = req.body.firstname;
+    const searchFisrtName = new RegExp(req.body.firstname);
     const searchLastName = req.body.lastname;
     const searchlocation = re.body.location;
     const resultFirstName = await Marriagedata.find({
