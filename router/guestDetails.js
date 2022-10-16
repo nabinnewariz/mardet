@@ -47,15 +47,15 @@ router.post("/Searchdata", cors(), async(req,res) => {
    };
 })
 
-router.options('/Locationdata', cors())
-router.post("/Locationdata", cors(), async(req,res) => {
-   try {
-    let searchlocation = req.body.location;
-    const resultLoc = await Marriagedata.find({location: searchlocation})
-    res.status(200).send(resultLoc);
-   } catch (error) {
-     res.send(error).send("invalid credentials");
-   };
-})
+// router.options('/Locationdata', cors())
+// router.post("/Locationdata", cors(), async(req,res) => {
+//    try {
+//     let searchlocation = req.body.location;
+//     const resultLoc = await Marriagedata.find({location: searchlocation})
+//     res.status(200).send(resultLoc);
+//    } catch (error) {
+//      res.send(error).send("invalid credentials");
+//    };
+// })
 
 module.exports = router;
